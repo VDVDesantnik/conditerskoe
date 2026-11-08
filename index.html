@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>VelvetCake — Авторская кондитерская в Новосибирске</title>
+    <!-- Встроенная иконка-логотип сайта для вкладки браузера -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e07a5f'/%3E%3Cstop offset='100%25' stop-color='%239e3d28'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M16 42h32v6a4 4 0 0 1-4 4H20a4 4 0 0 1-4-4v-6zm4-12h24v10H20V30zm12-14c3.5 0 6 2.5 6 6 0 2-1.2 3.8-3 4.8H29c-1.8-1-3-2.8-3-4.8 0-3.5 2.5-6 6-6z' fill='%23fff8f2'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- Фоновые световые сферы для эффекта преломления в стекле -->
+    <div class="ambient-bg" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+
+    <!-- Шапка -->
+    <header class="header" id="top">
+        <div class="container header-inner">
+            <a href="#top" class="logo" aria-label="VelvetCake — На главную">
+                <span class="logo-svg-wrap">
+                    <svg class="brand-logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoBgGrad" x1="4" y1="4" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#DF7D60" />
+                                <stop offset="55%" stop-color="#C86448" />
+                                <stop offset="100%" stop-color="#8F3521" />
+                            </linearGradient>
+                            <linearGradient id="logoCreamGrad" x1="16" y1="18" x2="48" y2="52" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#FFFFFF" />
+                                <stop offset="100%" stop-color="#F8E5D6" />
+                            </linearGradient>
+                            <linearGradient id="logoGoldGrad" x1="20" y1="10" x2="44" y2="26" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#FFE4A0" />
+                                <stop offset="100%" stop-color="#E6A940" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#logoBgGrad)" />
+                        <rect x="3" y="3" width="58" height="58" rx="17" stroke="white" stroke-opacity="0.55" stroke-width="1.5" />
+                        <path d="M20 4H44C52.8366 4 60 11.1634 60 20V22C46 26 18 26 4 22V20C4 11.1634 11.1634 4 20 4Z" fill="white" fill-opacity="0.16" />
+                        <path d="M12 50H52C53.1 50 54 50.9 54 52C54 53.1 53.1 54 52 54H12C10.9 54 10 53.1 10 52C10 50.9 10.9 50 12 50Z" fill="url(#logoGoldGrad)" />
+                        <rect x="15" y="36" width="34" height="14" rx="4" fill="url(#logoCreamGrad)" />
+                        <path d="M15 39C17.8 41.5 20.5 41.5 23.5 39C26.5 41.5 29.2 41.5 32 39C34.8 41.5 37.5 41.5 40.5 39C43.5 41.5 46.2 41.5 49 39" stroke="#C86448" stroke-width="2" stroke-linecap="round" />
+                        <rect x="21" y="24" width="22" height="12" rx="3.5" fill="url(#logoCreamGrad)" />
+                        <path d="M21 27C23.5 29.2 26 29.2 28.5 27C31 29.2 33 29.2 35.5 27C38 29.2 40.5 29.2 43 27" stroke="#C86448" stroke-width="1.8" stroke-linecap="round" />
+                        <circle cx="32" cy="18.5" r="4.5" fill="#FF4B5C" />
+                        <circle cx="30.6" cy="17.2" r="1.2" fill="white" fill-opacity="0.8" />
+                        <path d="M29 13.5L32 10.5L35 13.5" stroke="url(#logoGoldGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <div class="logo-text-block">
+                    <span class="logo-text">Velvet<span>Cake</span></span>
+                    <span class="logo-sub">Atelier Новосибирск</span>
+                </div>
+            </a>
+
+            <nav class="nav" id="mainNav">
+                <a href="#catalog" class="nav-link">Главное меню</a>
+                <a href="#all-cakes" class="nav-link nav-link-cakes" id="navAllCakesLink">🎂 Торты (168)</a>
+                <a href="#fillings" class="nav-link">Начинки (27)</a>
+                <a href="#calculator" class="nav-link">Калькулятор</a>
+                <a href="#reviews" class="nav-link">Отзывы</a>
+                <a href="#delivery" class="nav-link">Доставка</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="btn-glass btn-glass-sm" id="openAuthBtn" title="Личный кабинет и регистрация">
+                <span id="headerUserLabel">👤 Войти</span>
+                </button>
+                <button class="btn-glass btn-glass-sm btn-admin-trigger" id="openAdminBtn" title="Открыть панель управления">
+                <span>⚙️ Админ</span>
+                </button>
+                <button class="btn-glass btn-glass-sm" data-open-modal="Торт A0024">
+                <span>Заказать торт</span>
+                <span class="btn-arrow">→</span>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">
+                ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Главный экран -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="glass-pill">
+                        <span class="pulse-dot"></span>
+                        <span>Ручная работа • 100% натурально • Готовим за 24 часа</span>
+                    </div>
+                    <h1 class="hero-title">Авторские торты на заказ в <span>Новосибирске</span></h1>
+                    <p class="hero-subtitle">
+                        Авторские торты на заказ в Новосибирске от кондитерской Евгении Великановой (tort54.ru). 100% натуральные продукты, 18 фирменных начинок от 1 700 ₽/кг и бережная доставка к вашему празднику.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn-glass btn-glass-primary" data-open-modal="Торт A0024">
+                            <span>Оформить заказ</span>
+                            <span class="btn-icon">✨</span>
+                        </button>
+                        <a href="#catalog" class="btn-glass btn-glass-light">Главное меню (2 ряда)</a>
+                        <a href="#all-cakes" class="btn-glass btn-glass-light">Раздел «Торты» (Все 168)</a>
+                        <a href="#fillings" class="btn-glass btn-glass-light">Начинки (27)</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <strong id="heroRatingStat">4.9 ★</strong>
+                            <span id="heroReviewsCountStat">18 реальных отзывов с tort54.ru</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <strong id="heroCakesCountStat">168 тортов</strong>
+                            <span>63 детских • 49 свадебных • 52 праздничных</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <strong>от 2 ч</strong>
+                            <span>Срочная доставка в термобоксах</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="showcase-wrapper" id="tiltCard">
+                        <div class="floating-badge badge-top">
+                            <div class="badge-emoji">🏆</div>
+                            <div class="badge-info">
+                                <strong class="badge-title">Премиум качество</strong>
+                                <span class="badge-subtext">100% свежие ингредиенты</span>
+                            </div>
+                        </div>
+
+                        <div class="art-card">
+                            <div class="cake-illustration-orb" role="img" aria-label="Клубничный торт">
+                                <span>🍰</span>
+                            </div>
+                            <h2 class="art-title">Кондитерское искусство</h2>
+                            <p class="art-desc">Бельгийский шоколад Callebaut, отборные ягоды, сыр Cremette и ручная лепка любой сложности</p>
+                            <div class="art-tags">
+                                <span class="mini-glass-tag">🍫 Callebaut 70%</span>
+                                <span class="mini-glass-tag">🍓 Свежая ягода</span>
+                                <span class="mini-glass-tag">🌿 Без заменителей</span>
+                                <span class="mini-glass-tag">🎨 Заказ в 1 клик</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-badge badge-bottom">
+                            <div class="badge-emoji">🚚</div>
+                            <div class="badge-info">
+                                <strong class="badge-title">Бережная доставка</strong>
+                                <span class="badge-subtext">В спец-термобоксах по НСК</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- БЕГУЩАЯ СТРОКА С ЛОГОТИПАМИ ПАРТНЁРОВ -->
+        <section class="partners-section" id="partners">
+            <div class="container">
+                <div class="partners-header">
+                    <span class="section-subtitle">Корпоративные заказы и мероприятия</span>
+                    <h2 class="partners-title">Компании, которые нам доверяют</h2>
+                </div>
+            </div>
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                    <div class="marquee-Group">
+                        <div class="partner-logo-card"><img src="logos/sber.png" alt="Сбер" loading="lazy" /></div>
+                        <div class="partner-logo-card"><img src="logos/bmw.png" alt="BMW" loading="lazy" /></div>
+                        <div class="partner-logo-card"><img src="logos/cocacola.png" alt="Coca-Cola" loading="lazy" /></div>
+                        <div class="partner-logo-card"><img src="logos/rzd.png" alt="РЖД" loading="lazy" /></div>
+                        <div class="partner-logo-card"><img src="logos/kia.png" alt="KIA" loading="lazy" /></div>
+                        <div class="partner-logo-card"><img src="logos/efes.jpg" alt="Efes" loading="lazy" /></div>
+                    </div>
+                    <div class="marquee-Group" aria-hidden="true">
+                        <div class="partner-logo-card"><img src="logos/sber.png" alt="Сбер" loading="lazy" /></div>
+                        <div class="partner-logo-card"><img src="logos/bmw.png" alt="BMW" loading="lazy" /></div>
+                        <div class="partner-logo-card"><img src="logos/cocacola.png" alt="Coca-Cola" loading="lazy" /></div>
+                        <div class="partner-logo-card"><img src="logos/rzd.png" alt="РЖД" loading="lazy" /></div>
+                        <div class="partner-logo-card"><img src="logos/kia.png" alt="KIA" loading="lazy" /></div>
+                        <div class="partner-logo-card"><img src="logos/efes.jpg" alt="Efes" loading="lazy" /></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ГЛАВНОЕ МЕНЮ ТОРТОВ (ОТОБРАЖАЕТСЯ 2 РЯДА + КНОПКА «ЗАГРУЗИТЬ ЕЩЕ») -->
+        <section class="catalog" id="catalog">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <span class="section-subtitle">Главное меню • Витрина tort54.ru</span>
+                        <h2 class="section-title">Каталог авторских тортов</h2>
+                        <p class="section-desc">В главном меню отображаются 2 ряда тортов. Нажмите «Загрузить еще», чтобы загрузить все торты, или откройте отдельный раздел «Торты».</p>
+                    </div>
+                    <div class="filter-group" id="catalogFilters">
+                        <button type="button" class="btn-glass btn-filter active" data-filter="all">Все торты (168)</button>
+                        <button type="button" class="btn-glass btn-filter" data-filter="hits">Хиты продаж (54)</button>
+                        <button type="button" class="btn-glass btn-filter" data-filter="kids">Детские торты (63)</button>
+                        <button type="button" class="btn-glass btn-filter" data-filter="wedding">Свадебные торты (49)</button>
+                        <button type="button" class="btn-glass btn-filter" data-filter="other">Другие торты (52)</button>
+                        <button type="button" class="btn-glass btn-filter" data-filter="berry">Ягодные и Кремовые</button>
+                        <button type="button" class="btn-glass btn-filter" data-filter="choco">Шоколадные</button>
+                        <button type="button" class="btn-glass btn-filter" data-filter="holiday">Праздничные</button>
+                        <button type="button" class="btn-glass btn-filter" data-filter="corp">Корпоративные</button>
+                        <button type="button" class="btn-glass btn-filter" data-filter="bento">Капкейки (9)</button>
+                    </div>
+                </div>
+                <div class="catalog-grid" id="catalogGrid"></div>
+                <div class="catalog-load-more-box" id="catalogLoadMoreBox">
+                    <div class="catalog-load-more-status" id="catalogShownStatus">Показано 2 ряда (6 из 168 тортов)</div>
+                    <div class="catalog-load-more-actions">
+                        <button type="button" class="btn-glass btn-glass-primary" id="loadMoreCakesBtn">
+                            <span id="loadMoreCakesBtnText">Загрузить еще (все 168 тортов)</span>
+                            <span id="loadMoreCakesBtnIcon">↓</span>
+                        </button>
+                        <a href="#all-cakes" class="btn-glass btn-glass-light" id="goToAllCakesSectionBtn">
+                            <span>Перейти в раздел «Торты» (все 168) →</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ОТДЕЛЬНЫЙ РАЗДЕЛ «ТОРТЫ» (ПОКАЗАНЫ АБСОЛЮТНО ВСЕ ТОРТЫ С САЙТА TORT54.RU) -->
+        <section class="all-cakes-section" id="all-cakes">
+            <div class="container">
+                <div class="section-header all-cakes-header">
+                    <div>
+                        <span class="section-subtitle">Полная коллекция tort54.ru • 1 в 1 с оригиналом</span>
+                        <h2 class="section-title">Раздел «Торты» — Абсолютно все торты</h2>
+                        <p class="section-desc">Полный каталог кондитерской Евгении Великановой (tort54.ru) без сокращений: все 63 детских торта, 49 свадебных тортов, 52 других/праздничных торта и 9 видов капкейков с оригинальными фото, названиями, артикулами и описаниями.</p>
+                    </div>
+                    <div class="all-cakes-toolbar">
+                        <div class="all-cakes-search-row">
+                            <input type="search" id="allCakesSearchInput" class="glass-search-input" placeholder="🔍 Поиск по названию, артикулу (D0010, W0100, A0024) или описанию..." aria-label="Поиск по всем тортам" />
+                            <span class="all-cakes-count-pill" id="allCakesCountPill">Показано: 168 из 168</span>
+                        </div>
+                        <div class="filter-group" id="allCakesFilters">
+                            <button type="button" class="btn-glass btn-filter-all active" data-all-filter="all">Все позиции (168)</button>
+                            <button type="button" class="btn-glass btn-filter-all" data-all-filter="kids">Детские торты (63)</button>
+                            <button type="button" class="btn-glass btn-filter-all" data-all-filter="wedding">Свадебные торты (49)</button>
+                            <button type="button" class="btn-glass btn-filter-all" data-all-filter="other">Другие торты (52)</button>
+                            <button type="button" class="btn-glass btn-filter-all" data-all-filter="hits">Хиты продаж (54)</button>
+                            <button type="button" class="btn-glass btn-filter-all" data-all-filter="cupcakes">Капкейки (9)</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-grid all-cakes-grid" id="allCakesGrid"></div>
+            </div>
+        </section>
+
+        <!-- КАТАЛОГ НАЧИНОК (ВСЕ 18 НАЧИНОК ТОРТОВ + 9 ВКУСОВ КАПКЕЙКОВ С TORT54.RU) -->
+        <section class="fillings-section" id="fillings">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <span class="section-subtitle">Анатомия вкуса • Каталог tort54.ru/catalog</span>
+                        <h2 class="section-title">Фирменные начинки тортов и капкейков (27 вкусов)</h2>
+                        <p class="section-desc">Все 18 фирменных начинок тортов (Cake002–Cake019) и 9 вкусов капкейков (cupcake01–cupcake09) с сайта tort54.ru. Нажмите на любой вкус, чтобы сразу подставить его в заказ.</p>
+                    </div>
+                    <div class="filter-group" id="fillingsFilters">
+                        <button type="button" class="btn-glass btn-filter-filling active" data-fill-filter="all">Все вкусы (27)</button>
+                        <button type="button" class="btn-glass btn-filter-filling" data-fill-filter="cakes">Начинки для тортов (18)</button>
+                        <button type="button" class="btn-glass btn-filter-filling" data-fill-filter="cupcakes">Начинки капкейков (9)</button>
+                    </div>
+                </div>
+                <div class="fillings-grid" id="fillingsGrid"></div>
+            </div>
+        </section>
+
+        <!-- ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР ВЕСА И СТОИМОСТИ -->
+        <section class="calculator-section" id="calculator">
+            <div class="container">
+                <div class="calc-glass-box">
+                    <div class="calc-info">
+                        <span class="section-subtitle">Онлайн-расчёт</span>
+                        <h2>Рассчитайте идеальный вес и стоимость торта</h2>
+                        <p>По стандарту кондитерской рассчитывается 150–200 г торта на одного гостя. Выберите количество гостей и начинку:</p>
+                        <div class="calc-controls">
+                            <div class="calc-field">
+                                <label for="guestsRange">Количество гостей: <strong id="guestsCountLabel">10 чел.</strong></label>
+                                <input type="range" id="guestsRange" min="2" max="80" value="10" step="1" />
+                                <div class="range-marks">
+                                    <span>2 (Бенто)</span>
+                                    <span>20 чел.</span>
+                                    <span>40 чел.</span>
+                                    <span>80 чел.</span>
+                                </div>
+                            </div>
+                            <div class="calc-field">
+                                <label for="calcFillingSelect">Выберите начинку для расчёта:</label>
+                                <select id="calcFillingSelect" class="glass-select"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calc-result-card">
+                        <div class="calc-badge">Рекомендация кондитера</div>
+                        <div class="calc-metrics">
+                            <div class="calc-metric">
+                                <span>Рекомендуемый вес</span>
+                                <strong id="calcWeightResult">2.0 кг</strong>
+                            </div>
+                            <div class="calc-metric">
+                                <span>Количество ярусов</span>
+                                <strong id="calcTiersResult">1 ярус</strong>
+                            </div>
+                            <div class="calc-metric highlight">
+                                <span>Ориентировочная цена</span>
+                                <strong id="calcPriceResult">4 400 ₽</strong>
+                            </div>
+                        </div>
+                        <button class="btn-glass btn-glass-primary btn-full" id="calcOrderBtn">
+                            <span>Заказать с этими параметрами</span>
+                            <span>✨</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРЕИМУЩЕСТВА -->
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <span class="section-subtitle">Почему VelvetCake</span>
+                        <h2 class="section-title">Безупречное качество в каждой детали</h2>
+                    </div>
+                </div>
+                <div class="bento-grid">
+                    <div class="bento-card">
+                        <span class="bento-icon">🍓</span>
+                        <h3>Отборные ингредиенты</h3>
+                        <p>Используем только животные сливки 33%, творожный сыр Cremette, сливочное масло 82.5% и бельгийский шоколад Callebaut.</p>
+                    </div>
+                    <div class="bento-card">
+                        <span class="bento-icon">🎨</span>
+                        <h3>Индивидуальный декор</h3>
+                        <p>Воплотим референс любой сложности: от минималистичных бенто и ламбет-тортов до пятиярусных свадебных композиций.</p>
+                    </div>
+                    <div class="bento-card">
+                        <span class="bento-icon">📸</span>
+                        <h3>Фото перед отправкой</h3>
+                        <p>Перед тем как передать торт курьеру, мы отправляем вам фотографию готового десерта в Telegram или WhatsApp для согласования.</p>
+                    </div>
+                    <div class="bento-card">
+                        <span class="bento-icon">❄️</span>
+                        <h3>Термо-логистика</h3>
+                        <p>Собственные курьеры доставляют заказы в холодильных боксах — торт доедет в идеальном виде в любую погоду.</p>
+                    </div>
+                    <div class="bento-card">
+                        <span class="bento-icon">🎁</span>
+                        <h3>Несколько тортов в 1 заказе</h3>
+                        <p>Заказывайте сразу несколько тортов на разные даты или одно большое торжество через удобный конструктор заказа.</p>
+                    </div>
+                    <div class="bento-card">
+                        <span class="bento-icon">📄</span>
+                        <h3>Работа с юрлицами</h3>
+                        <p>Для корпоративных клиентов предоставляем закрывающие документы, брендирование логотипом компании и оплату по счёту.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ОТЗЫВЫ ГОСТЕЙ -->
+        <section class="reviews-section" id="reviews">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <span class="section-subtitle">Впечатления клиентов</span>
+                        <h2 class="section-title">Отзывы о наших десертах</h2>
+                        <p class="section-desc">Реальные истории свадеб, детских праздников и сюрпризов, которые мы помогли сделать вкуснее.</p>
+                    </div>
+                    <button class="btn-glass btn-glass-light" id="openReviewModalBtn">
+                        <span>💬 Оставить отзыв</span>
+                    </button>
+                </div>
+                <div class="reviews-grid" id="reviewsGrid"></div>
+            </div>
+        </section>
+
+        <!-- ДОСТАВКА И ЗАКАЗ ПО ЭСКИЗУ -->
+        <section class="cta-section" id="delivery">
+            <div class="container">
+                <div class="delivery-grid">
+                    <div class="delivery-card">
+                        <span class="delivery-badge">🚚 По Новосибирску и области</span>
+                        <h3>Условия доставки</h3>
+                        <ul class="delivery-list">
+                            <li><strong>Центральный, Железнодорожный, Октябрьский, Кировский, Ленинский р-ны:</strong> от 350 ₽ (бесплатно при заказе от 7 000 ₽).</li>
+                            <li><strong>Академгородок, Первомайский, Советский, Бердск, Кольцово:</strong> точный расчёт по тарифу курьера в термобоксе.</li>
+                            <li><strong>Самовывоз:</strong> бесплатно ежедневно с 09:00 до 21:00.</li>
+                            <li><strong>Срочный заказ:</strong> бенто-торты и десерты из наличия доставляем за 2–3 часа.</li>
+                        </ul>
+                    </div>
+                    <div class="delivery-card">
+                        <span class="delivery-badge">💳 Удобная оплата</span>
+                        <h3>Оплата и гарантии</h3>
+                        <ul class="delivery-list">
+                            <li><strong>Для физлиц:</strong> перевод по СБП, оплата картой любого банка или наличными при получении.</li>
+                            <li><strong>Бронирование даты:</strong> предоплата 30%, остаток — после получения фото готового торта.</li>
+                            <li><strong>Для бизнеса:</strong> безналичный расчёт по реквизитам (без НДС / с закрывающим актом).</li>
+                            <li><strong>Гарантия свежести:</strong> все торты выпекаются строго под вашу дату, без заморозки.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cta-glass-box">
+                    <div class="cta-content">
+                        <h2>Хотите торт по собственному эскизу или сразу несколько тортов?</h2>
+                        <p>Оформите заявку в конструкторе — выберите нужные торты, начинки и даты готовности, и кондитер свяжется с вами в течение 15 минут.</p>
+                        <div class="cta-buttons">
+                            <button class="btn-glass btn-glass-primary" data-open-modal="Индивидуальный торт по эскизу">
+                                <span>Открыть конструктор заказа</span>
+                                <span>✨</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЧАСТЫЕ ВОПРОСЫ (FAQ) -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <span class="section-subtitle">Ответы на вопросы</span>
+                        <h2 class="section-title">Часто спрашивают</h2>
+                    </div>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>За сколько дней лучше заказывать торт?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Оптимально оформлять заказ за 2–5 дней до торжества, а свадебные и многоярусные торты — за 7–14 дней. Если торт нужен срочно «на сегодня» или «на завтра», мы приготовим бенто-торт или классический торт за 2–4 часа без доплаты за срочность.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Можно ли в одном заказе выбрать сразу несколько тортов на разные даты?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Да! В окне оформления заказа нажмите кнопку «Добавить ещё один торт в заказ». Для каждого торта можно отдельно выбрать вид из выпадающего списка, вес, начинку и дату готовности.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Можно ли сделать разные начинки в разных ярусах?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Конечно! Для тортов от 2 ярусов (от 3.5 кг) вы можете выбрать отдельную начинку для каждого яруса. Например, нижний ярус — «Сникерс», а верхний — «Клубника-Фисташка».</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Как хранить торт до подачи на стол?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Все наши торты натуральные, поэтому хранить их необходимо в холодильнике при температуре от +2 до +6 °C в коробке. Срок годности — 72 часа с момента приготовления.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <a href="#top" class="logo">
+                    <span class="logo-svg-wrap logo-svg-sm">
+                        <svg class="brand-logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#logoBgGrad)" />
+                            <path d="M12 50H52C53.1 50 54 50.9 54 52C54 53.1 53.1 54 52 54H12C10.9 54 10 53.1 10 52C10 50.9 10.9 50 12 50Z" fill="url(#logoGoldGrad)" />
+                            <rect x="15" y="36" width="34" height="14" rx="4" fill="url(#logoCreamGrad)" />
+                            <rect x="21" y="24" width="22" height="12" rx="3.5" fill="url(#logoCreamGrad)" />
+                            <circle cx="32" cy="18.5" r="4.5" fill="#FF4B5C" />
+                        </svg>
+                    </span>
+                    <div class="logo-text-block">
+                        <span class="logo-text">Velvet<span>Cake</span></span>
+                        <span class="logo-sub">© 2026 Авторская кондитерская</span>
+                    </div>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="#catalog">Главное меню</a>
+                <a href="#all-cakes">Все торты (168)</a>
+                <a href="#fillings">Начинки (27)</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#delivery">Доставка</a>
+            </div>
+            <div>
+                <p>Ежедневно с 09:00 до 21:00</p>
+                <p>г. Новосибирск • +7 (383) 213-62-77 • info@tort54.ru</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- МЕНЮ ОФОРМЛЕНИЯ ЗАКАЗА -->
+    <div class="modal-backdrop" id="orderModal" aria-hidden="true">
+        <div class="modal-glass">
+            <button class="modal-close" id="closeModal" aria-label="Закрыть">✕</button>
+            <div class="modal-header">
+                <div class="modal-brand-row">
+                    <span class="modal-badge">🎁 Оформление заказа</span>
+                    <span class="modal-counter-pill" id="cakesCounterBadge">Тортов в заказе: 1</span>
+                </div>
+                <h3>Соберите ваш заказ</h3>
+                <p class="modal-sub">Выберите один или несколько тортов из выпадающего списка, укажите начинку и дату готовности.</p>
+            </div>
+            <form id="orderForm" class="modal-form" novalidate>
+                <div class="cake-items-list" id="cakeItemsContainer"></div>
+                <button type="button" class="btn-glass btn-add-cake" id="addAnotherCakeBtn">
+                    <span class="add-cake-plus">＋</span>
+                    <span>Добавить ещё один торт в заказ</span>
+                </button>
+                <div class="modal-divider"></div>
+                <div class="form-row contact-row">
+                    <div class="form-group">
+                        <label for="clientName">Ваше имя <span class="label-hint">(только буквы)</span></label>
+                        <input type="text" id="clientName" name="name" placeholder="Например: Роман" autocomplete="given-name" maxlength="40" required />
+                        <span class="field-error" id="nameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientPhone">Телефон <span class="label-hint">(с +7 или 8)</span></label>
+                        <input type="tel" id="clientPhone" name="phone" placeholder="+79991234567" autocomplete="tel" maxlength="12" required />
+                        <span class="field-error" id="phoneError"></span>
+                    </div>
+                </div>
+                <div class="form-group contact-comment">
+                    <label for="clientComment">Пожелания по декору / надписи / адресу доставки</label>
+                    <textarea id="clientComment" name="comment" rows="2" placeholder="Надпись на торте, время и адрес доставки..."></textarea>
+                </div>
+                <div class="form-status" id="formStatus"></div>
+                <button type="submit" class="btn-glass btn-glass-primary btn-full" id="submitOrderBtn">
+                    <span>Подтвердить заказ</span>
+                    <span>🚀</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ДОБАВЛЕНИЯ ОТЗЫВА -->
+    <div class="modal-backdrop" id="reviewModal" aria-hidden="true">
+        <div class="modal-glass">
+            <button class="modal-close" id="closeReviewModal" aria-label="Закрыть">✕</button>
+            <div class="modal-header">
+                <div class="modal-brand-row">
+                    <span class="modal-badge">💬 Новый отзыв</span>
+                </div>
+                <h3>Поделитесь впечатлениями</h3>
+                <p class="modal-sub">Ваш отзыв сразу появится на витрине кондитерской VelvetCake.</p>
+            </div>
+            <form id="publicReviewForm" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="revAuthor">Ваше имя</label>
+                        <input type="text" id="revAuthor" placeholder="Например: Екатерина" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="revRating">Оценка</label>
+                        <select id="revRating" class="glass-select">
+                            <option value="5">★★★★★ (5 — Восторг!)</option>
+                            <option value="4">★★★★☆ (4 — Очень вкусно)</option>
+                            <option value="3">★★★☆☆ (3 — Хорошо)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="revCake">Какой торт или начинку заказывали?</label>
+                    <select id="revCake" class="glass-select" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="revText">Ваш отзыв</label>
+                    <textarea id="revText" rows="3" placeholder="Расскажите о вкусе, декоре и доставке..." required></textarea>
+                </div>
+                <button type="submit" class="btn-glass btn-glass-primary btn-full">
+                    <span>Опубликовать отзыв</span>
+                    <span>✨</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- АДМИН-ПАНЕЛЬ В СТИЛЕ LIQUID GLASS -->
+    <div class="modal-backdrop" id="adminModal" aria-hidden="true">
+        <div class="modal-glass admin-glass-panel">
+            <button class="modal-close" id="closeAdminModal" aria-label="Закрыть">✕</button>
+            <!-- Экран входа по PIN-коду -->
+            <div id="adminAuthView" class="admin-auth-box">
+                <div class="cake-illustration-orb admin-lock-orb">
+                    <span>🔐</span>
+                </div>
+                <h3>Liquid Glass Admin</h3>
+                <p class="modal-sub">Введите серверный пароль администратора для доступа к панели управления</p>
+                <form id="adminPinForm" class="admin-pin-form">
+                    <input type="password" id="adminPinInput" placeholder="Пароль администратора" maxlength="64" autocomplete="current-password" required />
+                    <button type="submit" class="btn-glass btn-glass-primary">Войти в панель</button>
+                </form>
+                <div class="field-error" id="adminPinError"></div>
+            </div>
+
+            <!-- Основной интерфейс админ-панели -->
+            <div id="adminDashboardView" class="admin-dashboard" style="display: none;">
+                <div class="admin-top-bar">
+                    <div>
+                        <div class="modal-brand-row">
+                            <span class="modal-badge">✨ VelvetCake Studio OS</span>
+                            <span class="admin-sync-pill" id="adminSyncStatus">Синхронизировано</span>
+                        </div>
+                        <h3>Панель управления кондитерской</h3>
+                    </div>
+                    <div class="admin-tabs" role="tablist">
+                        <button type="button" class="btn-glass admin-tab active" data-admin-tab="cakes">🎂 Торты и цены</button>
+                        <button type="button" class="btn-glass admin-tab" data-admin-tab="fillings">🍓 Вкусы (Начинки)</button>
+                        <button type="button" class="btn-glass admin-tab" data-admin-tab="reviews">💬 Отзывы</button>
+                    </div>
+                </div>
+
+                <!-- ВКЛАДКА 1: УПРАВЛЕНИЕ ТОРТАМИ, ЦЕНАМИ И КАРТИНКАМИ -->
+                <div class="admin-tab-content active" id="adminTabCakes">
+                    <div class="admin-split-layout">
+                        <form id="adminAddCakeForm" class="admin-glass-card modal-form">
+                            <div class="admin-card-title-row">
+                                <h4 id="adminCakeFormTitle">➕ Добавить новый торт</h4>
+                                <button type="button" class="btn-reset-edit" id="cancelEditCakeBtn" style="display: none;">Сбросить</button>
+                            </div>
+                            <input type="hidden" id="editCakeId" value="" />
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Название торта *</label>
+                                    <input type="text" id="cakeTitleInput" placeholder="Фисташковый рассвет" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Категория *</label>
+                                    <select id="cakeCategoryInput" class="glass-select">
+                                        <option value="berry">Ягодные и Муссовые</option>
+                                        <option value="choco">Шоколадные</option>
+                                        <option value="wedding">Свадебные</option>
+                                        <option value="kids">Детские</option>
+                                        <option value="holiday">Праздничные</option>
+                                        <option value="corp">Корпоративные</option>
+                                        <option value="bento">Бенто-торты</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Цена (₽) *</label>
+                                    <input type="number" id="cakePriceInput" placeholder="2300" min="100" max="500000" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ед. измерения</label>
+                                    <select id="cakeUnitInput" class="glass-select">
+                                        <option value="/ кг">/ кг</option>
+                                        <option value="/ шт">/ шт</option>
+                                        <option value="/ набор">/ набор</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Бейдж на карточке</label>
+                                    <input type="text" id="cakeBadgeInput" placeholder="Хит продаж" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Эмодзи (если нет фото)</label>
+                                    <input type="text" id="cakeEmojiInput" placeholder="🍰" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Краткая сводка (вес • ключевой вкус)</label>
+                                <input type="text" id="cakeMetaInput" placeholder="Вес: от 1.5 кг • Клубника — Фисташка" />
+                            </div>
+                            <div class="form-group">
+                                <label>Описание торта *</label>
+                                <textarea id="cakeTextInput" rows="2" placeholder="Воздушный бисквит на фисташковой пасте..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Картинка торта (URL-ссылка или загрузка файла с ПК)</label>
+                                <div class="admin-image-upload-row">
+                                    <input type="text" id="cakeImageUrlInput" placeholder="https://... или загрузите фото →" />
+                                    <label class="btn-glass btn-glass-light btn-sm admin-upload-label">
+                                        <span>📁 Загрузить фото</span>
+                                        <input type="file" id="cakeImageFileInput" accept="image/*" hidden />
+                                    </label>
+                                </div>
+                                <div id="cakeImagePreviewWrap" class="admin-img-preview" style="display: none;">
+                                    <img id="cakeImagePreview" src="" alt="Превью" />
+                                    <button type="button" id="clearCakeImageBtn" class="btn-remove-cake">✕ Убрать фото</button>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-glass btn-glass-primary btn-full" id="saveCakeBtn">
+                                <span>Сохранить торт в каталог</span>
+                                <span>✨</span>
+                            </button>
+                        </form>
+
+                        <!-- Список всех тортов -->
+                        <div class="admin-glass-card admin-list-card">
+                            <div class="admin-card-title-row">
+                                <h4>📋 Торты в каталоге (<span id="adminCakesCount">0</span>)</h4>
+                                
+                            </div>
+                            <div class="admin-items-scroll" id="adminCakesList"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ВКЛАДКА 2: УПРАВЛЕНИЕ ВКУСАМИ (НАЧИНКАМИ) -->
+                <div class="admin-tab-content" id="adminTabFillings">
+                    <div class="admin-split-layout">
+                        <form id="adminAddFillingForm" class="admin-glass-card modal-form">
+                            <h4>➕ Добавить новый вкус (начинку)</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Название вкуса *</label>
+                                    <input type="text" id="fillingTitleInput" placeholder="Лаванда — Черника" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Эмодзи и тег</label>
+                                    <div class="form-row">
+                                        <input type="text" id="fillingEmojiInput" placeholder="🫐" />
+                                        <input type="text" id="fillingTagInput" placeholder="Новинка" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Описание начинки *</label>
+                                <textarea id="fillingDescInput" rows="2" placeholder="Ароматный лавандовый бисквит, черничное конфи и сливочный мусс..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Слои начинки (через запятую)</label>
+                                <input type="text" id="fillingLayersInput" placeholder="Лавандовый бисквит, Черничное кули, Крем-чиз" />
+                            </div>
+                            <button type="submit" class="btn-glass btn-glass-primary btn-full">
+                                <span>Добавить вкус на сайт</span>
+                                <span>🍓</span>
+                            </button>
+                        </form>
+
+                        <div class="admin-glass-card admin-list-card">
+                            <h4>🍓 Активные начинки (<span id="adminFillingsCount">0</span>)</h4>
+                            <div class="admin-items-scroll" id="adminFillingsList"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ВКЛАДКА 3: УПРАВЛЕНИЕ ОТЗЫВАМИ -->
+                <div class="admin-tab-content" id="adminTabReviews">
+                    <div class="admin-split-layout">
+                        <form id="adminAddReviewForm" class="admin-glass-card modal-form">
+                            <h4>➕ Добавить отзыв клиента</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Имя гостя *</label>
+                                    <input type="text" id="adminRevName" placeholder="Арина" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Оценка (1–5 ★)</label>
+                                    <select id="adminRevRating" class="glass-select">
+                                        <option value="5">5 ★ — Отлично</option>
+                                        <option value="4">4 ★ — Хорошо</option>
+                                        <option value="3">3 ★ — Нормально</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Заказанный торт / вкус</label>
+                                    <input type="text" id="adminRevCake" placeholder="Молочная девочка с ягодами" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Дата отзыва</label>
+                                    <input type="text" id="adminRevDate" placeholder="Октябрь 2026" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Текст отзыва *</label>
+                                <textarea id="adminRevText" rows="3" placeholder="Торт просто тает во рту, доставили точно ко времени..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-glass btn-glass-primary btn-full">
+                                <span>Опубликовать отзыв</span>
+                                <span>💬</span>
+                            </button>
+                        </form>
+
+                        <div class="admin-glass-card admin-list-card">
+                            <h4>💬 Опубликованные отзывы (<span id="adminReviewsCount">0</span>)</h4>
+                            <div class="admin-items-scroll" id="adminReviewsList"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- МОДАЛЬНОЕ ОКНО РЕГИСТРАЦИИ / ВХОДА ПО НОМЕРУ ТЕЛЕФОНА -->
+  <div class="modal-backdrop" id="authModal" aria-hidden="true">
+    <div class="modal-glass">
+      <button class="modal-close" id="closeAuthModal" aria-label="Закрыть">✕</button>
+
+      <!-- ЭКРАН 1: ВВОД ТЕЛЕФОНА И ПОДТВЕРЖДЕНИЕ КОДОМ -->
+      <div id="authGuestView">
+        <div class="modal-header">
+          <div class="modal-brand-row">
+            <span class="modal-badge">📱 Вход и регистрация</span>
+          </div>
+          <h3>Личный кабинет VelvetCake</h3>
+          <p class="modal-sub">Введите ваш номер телефона — мы проверим аккаунт или создадим новый за 10 секунд.</p>
+        </div>
+
+        <form id="authForm" class="modal-form" novalidate>
+          <div class="form-group">
+            <label for="authPhone">Номер телефона <span class="label-hint">(+7 или 8)</span></label>
+            <input type="tel" id="authPhone" placeholder="+7 (999) 123-45-67" autocomplete="tel" required />
+          </div>
+
+          <!-- Поле имени (показывается при новой регистрации или для обновления имени) -->
+          <div class="form-group" id="authNameGroup" style="display: none;">
+            <label for="authName">Ваше имя <span class="label-hint">(для новых гостей)</span></label>
+            <input type="text" id="authName" placeholder="Например: Роман" autocomplete="given-name" maxlength="50" />
+          </div>
+
+          <!-- Поле ввода 4-значного кода -->
+          <div class="form-group" id="authCodeGroup" style="display: none;">
+            <label for="authCode">Код подтверждения (6 цифр)</label>
+            <input type="text" id="authCode" placeholder="6-значный код из Telegram" maxlength="6" inputmode="numeric" />
+            <small id="authDemoCodeHint" style="display:block; margin-top:6px; color:#c86d51; font-weight:600;"></small>
+          </div>
+
+          <div class="form-status" id="authStatus"></div>
+
+          <button type="submit" class="btn-glass btn-glass-primary btn-full" id="authSubmitBtn">
+            <span id="authSubmitText">Получить код подтверждения</span>
+            <span>🔑</span>
+          </button>
+
+          <button type="button" class="btn-glass btn-glass-light btn-full" id="authChangePhoneBtn" style="display: none;">
+            <span>← Изменить номер телефона</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- ЭКРАН 2: ПРОФИЛЬ АВТОРИЗОВАННОГО КЛИЕНТА -->
+      <div id="authProfileView" style="display: none;">
+        <div class="modal-header">
+          <div class="modal-brand-row">
+            <span class="modal-badge">✨ Профиль гостя</span>
+          </div>
+          <h3 id="profileUserName">Привет!</h3>
+          <p class="modal-sub" id="profileUserPhone">+7 ...</p>
+        </div>
+
+        <div style="margin: 16px 0;">
+          <h4 style="margin-bottom: 10px;">📦 Мои заказы</h4>
+          <div id="profileOrdersList" style="max-height: 240px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;"></div>
+        </div>
+
+        <button type="button" class="btn-glass btn-glass-light btn-full" id="logoutUserBtn" style="color: #d93829;">
+          <span>Выйти из аккаунта</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
